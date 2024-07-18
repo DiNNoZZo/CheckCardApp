@@ -1,0 +1,19 @@
+services:
+  backend:
+    image: node:21.2.0
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    command: bash -c "npm install && npm run dev"
+    environment:
+      - NODE_ENV=development
+      - API_HOST_DOMAIN=localhost
+      - API_PORT=3001
+      - FE_HOST_DOMAIN-localhost
+      - FE_PORT=3000
+    ports:
+      - "3001:3001"
+
+volumes:
+  db-data:
+  pgadmin:
