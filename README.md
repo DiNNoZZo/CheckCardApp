@@ -26,3 +26,13 @@ Bug: at the first start of the application, the application starts incorrectly f
 The application just needs to be reloaded and it works as it should
 
 The error only occurs on the development server. When the application is built, everything works fine
+
+<!--
+[CR]
+- https://github.com/benaktom/vlcko_CheckCardApp
+- proč se BE a FE buildí a starují odlišně?
+- k čemu je package.json v rootu?
+- v BE by se hodilo mít readme a popsat, jakou např verzi node použít a jak to spustit
+- bylo by dobré někde popsat env proměnné
+- škoda, že neexistuje popis endpointů (ale nebylo povinné)
+-->

@@ -40,6 +40,7 @@ const LoginPage: FC = () => {
 
     try {
       const resLogin = await fetch(
+        // [CR] base url by měla být v konfiguraci
         'http://localhost:3001/api/isAuthenticated',
         {
           headers: {
@@ -58,6 +59,7 @@ const LoginPage: FC = () => {
         router.push('/card');
       }
     } catch (e) {
+      // [CR] když zadám špatné heslo, tak se mi nezobrazí chyba
       localStorage.removeItem('email');
       localStorage.removeItem('password');
     }

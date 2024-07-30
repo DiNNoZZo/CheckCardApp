@@ -18,34 +18,39 @@ export const checkCard = async (
   const cardNumber = req.params.cardNumber;
 
   const resValidity = await fetch(
+    // [CR] base url by měla být v konfiguraci
     `http://private-264465-litackaapi.apiary-mock.com/cards/${cardNumber}/validity`,
     {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        'X-API-Key':
+        'X-API-Key': // [CR] proč apilkíč? když už, tak by se hodil být v konfiguraci
           'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ2h5dHJ5IE9kcG92aWRhYyIsInJvbGVzIjpbInVzZXIiXSwiaWF0IjoxNTExNDUwNTk3fQ.p-MUGvUsUeQwsfRJSCdTm8eAP_MnyRrM58q6ehUjGLiDu5Bjkm7Gvbs0JTDitzPvWejkfrw-4fMXKjHKfj6gBQ',
       },
     }
   );
 
   const resState = await fetch(
+    // [CR] base url by měla být v konfiguraci
     `http://private-264465-litackaapi.apiary-mock.com/cards/${cardNumber}/state`,
     {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        'X-API-Key':
+        'X-API-Key': // [CR] proč apilkíč? když už, tak by se hodil být v konfiguraci
           'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ2h5dHJ5IE9kcG92aWRhYyIsInJvbGVzIjpbInVzZXIiXSwiaWF0IjoxNTExNDUwNTk3fQ.p-MUGvUsUeQwsfRJSCdTm8eAP_MnyRrM58q6ehUjGLiDu5Bjkm7Gvbs0JTDitzPvWejkfrw-4fMXKjHKfj6gBQ',
       },
     }
   );
 
+  // [CR] chybí ošetření chybových stavů
+  // [CR] lze volání nějak paralelizovat?
   const validityCard = (await resValidity.json()) as IValidity;
   const stateCard = (await resState.json()) as IState;
 
   res.status(200).json({
     validity: {
+      // [CR] tady bych čekal nějakou transformaci datumu dle zadání
       validityEnd: validityCard.validity_end,
       validityStart: validityCard.validity_start,
     },

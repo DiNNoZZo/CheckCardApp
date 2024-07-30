@@ -7,6 +7,7 @@ export const getPidLocations = async (
 ) => {
   try {
     const resPid = await fetch(
+      // [CR] url by měla být v konfiguraci
       'https://data.pid.cz/pointsOfSale/json/pointsOfSale.json',
       {
         method: 'GET',

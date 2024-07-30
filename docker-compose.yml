@@ -1,9 +1,12 @@
 services:
+
+  # [CR] vhodnější by bylo použít Dockerfile
   backend:
     image: node:21.2.0
     working_dir: /app
     volumes:
       - ./backend:/app
+    # [CR] npm run dev je jen pro vývoj, v docker compose by mělo být produkční spuštění
     command: bash -c "npm install && npm run dev"
     environment:
       - NODE_ENV=development
@@ -14,6 +17,7 @@ services:
     ports:
       - "3001:3001"
 
+# [CR] ??
 volumes:
   db-data:
   pgadmin:

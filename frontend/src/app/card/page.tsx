@@ -16,9 +16,11 @@ const CardPage = () => {
 
   useEffect(() => {
     const checkUser = async () => {
+      // [CR] tohle by určitě nemělo být v prohlížeči uložený jako plain text
       const email = localStorage.getItem('email');
       const password = localStorage.getItem('password');
 
+      // [CR] base url by měla být v konfiguraci
       const res = await fetch('http://localhost:3001/api/isAuthenticated', {
         method: 'GET',
         headers: {
@@ -43,6 +45,7 @@ const CardPage = () => {
     const password = localStorage.getItem('password');
 
     try {
+      // [CR] base url by měla být v konfiguraci
       const res = await fetch(`http://localhost:3001/api/card/${cardNumber}`, {
         method: 'GET',
         headers: {
