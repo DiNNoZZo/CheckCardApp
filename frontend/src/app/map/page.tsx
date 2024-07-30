@@ -13,6 +13,7 @@ const MapPage = () => {
   useEffect(() => {
     const getMapProps = async () => {
       try {
+        // [CR] base url by měla být v konfiguraci
         const res = await fetch('http://localhost:3001/api/pidLocations', {
           method: 'GET',
           headers: {

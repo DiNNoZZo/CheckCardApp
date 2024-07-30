@@ -10,6 +10,7 @@ const { feHostDomain, fePort } = config;
 
 const app = express();
 
+// [CR] je nutný bodyparser?
 app.use(express.json());
 app.use(bodyParser.json());
 

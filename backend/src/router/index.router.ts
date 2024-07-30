@@ -8,7 +8,7 @@ import { getPidLocations } from '../controllers/pidLocations';
 const router = Router();
 
 router.get('/home', getBaseMessage);
-router.get('/pidLocations', getPidLocations);
-router.get('/isAuthenticated', basicAuth, isAuthenticated);
+router.get('/pidLocations', getPidLocations); // [CR] hodí se mít url v camelCase?
+router.get('/isAuthenticated', basicAuth, isAuthenticated); // [CR] je tohle restful?
 router.get('/card/:cardNumber', basicAuth, checkCard);
 export default router;

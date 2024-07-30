@@ -1,6 +1,6 @@
 // src/middlewares/errorHandler.ts
 import { Request, Response, NextFunction } from 'express';
-import multer from 'multer';
+import multer from 'multer'; // [CR] tohle je tu navíc
 import ApiError from './ApiError';
 import { badRequestMessageList } from '../constants/index.constants';
 

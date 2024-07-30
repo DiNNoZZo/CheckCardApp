@@ -12,6 +12,8 @@ interface IConfigSchema {
 
 const schema: JSONSchemaType<IConfigSchema> = {
   type: 'object',
+  // [CR] tohle by asi nemělo být tak striktní, pokud se pak používá const `envVars = { ...process.env };`,
+  // protože pak se nedají použít jiné env proměnné, např. jiných knihoven
   additionalProperties: false,
   properties: {
     NODE_ENV: { type: 'string', default: 'development' },

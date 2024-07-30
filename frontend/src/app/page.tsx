@@ -13,6 +13,7 @@ export default function Home() {
   useEffect(() => {
     const checkServer = async () => {
       try {
+        // [CR] base url by měla být v konfiguraci
         const res = await fetch('http://localhost:3001/api/home', {
           method: 'GET',
         });
